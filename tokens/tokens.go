@@ -1,31 +1,29 @@
 package tokens
 
 
-type Token struct {
-	Value string
-	Type  string
-	Line  int
-	Col   int
-}
+type TokenType string
 
-
+// типы токенов
 const (
-	IDENTIFIER = "IDENTIFIER"
-	NUMBER = "NUMBER"
-	BOOL = "BOOL"
-	FLOAT = "FLOAT"
-	STRING = "STRING"
-	OPERATOR = "OPERATOR"
-	IF = "IF"
-	ELSE = "ELSE"
-	ELSEIF = "ELSEIF"
-	WHILE = "WHILE"
-	FUNCTION = "FUNCTION"
-	FOR = "FOR"
-	MATCH = "MATCH"
-	EOF = "EOF"
+    TokenIdentifier TokenType = "IDENTIFIER"
+    TokenNumber     TokenType = "NUMBER"
+    TokenString     TokenType = "STRING"
+    TokenOperator   TokenType = "OPERATOR"
+	TokenAssign     TokenType = "ASSIGN"
+    TokenKeyword    TokenType = "KEYWORD"
+	TokenComment    TokenType = "COMMENT"
+	TokenFunction   TokenType = "FUNCTION"
+	TokenReturn     TokenType = "RETURN"
+    TokenEOF        TokenType = "EOF"
 )
 
 
+type Token struct {
+    Type    TokenType // Тип токена
+	Lexeme  string    // Лексема
+    Value   string    // Значение 
+    Line    int       
+    Column  int       
+}
 
 
