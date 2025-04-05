@@ -1,5 +1,8 @@
 package tokens
 
+import (
+	"fmt"
+)
 
 type TokenType string
 
@@ -20,10 +23,12 @@ const (
 
 type Token struct {
     Type    TokenType // Тип токена
-	Lexeme  string    // Лексема
     Value   string    // Значение 
     Line    int       
     Column  int       
 }
 
+func (t Token) String() string {
+    return "[" + string(t.Type) + "] " + t.Value + " (Line: " + fmt.Sprint(t.Line) + ", Column: " + fmt.Sprint(t.Column) + ")"
+}
 
