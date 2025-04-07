@@ -16,10 +16,10 @@ func NewLexer(source string) *Lexer {
 
 func (l *Lexer) Lexical_analysis() []tokens.Token {
 	numberRegex := regexp.MustCompile(`^\d+$`)
-	keywordRegex := regexp.MustCompile(`^let$`)
+	keywordRegex := regexp.MustCompile(`^var$`)
 	identifierRegex := regexp.MustCompile(`\w+`)
 
-	re := regexp.MustCompile(`\d+|let|\w+|\S`)
+	re := regexp.MustCompile(`\d+|var|\w+|\S`)
 	source := re.FindAllString(l.Source, -1)
 
 	var result []tokens.Token
