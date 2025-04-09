@@ -2,4 +2,8 @@ package cmd
 
 
 
+func InteractiveMode() {
+	
+}
+
 
