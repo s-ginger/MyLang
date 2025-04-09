@@ -16,6 +16,8 @@ const (
     TokenKeyword    TokenType = "KEYWORD"
 	TokenComment    TokenType = "COMMENT"
 	TokenFunction   TokenType = "FUNCTION"
+	TokenLParen     TokenType = "LPAREN"
+	TokenRParen     TokenType = "RPAREN"
 	TokenReturn     TokenType = "RETURN"
     TokenEOF        TokenType = "EOF"
 )
