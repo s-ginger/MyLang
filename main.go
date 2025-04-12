@@ -2,22 +2,28 @@ package main
 
 import (
 	"fmt"
-
+	//"os"
 	"mylang/lexer"
-	//"mylang/tokens"
+	//"bufio"
+
 )
 
 func main() {
 
+	/*reader := bufio.NewReader(os.Stdin)
+	input, _ := reader.ReadString('\n')*/
+	
 	l := lexer.NewLexer(`
-	var a = 5
-	var a = 8
+	def add(a, b)
+    	return a + b
+	end
+	add(3, 2)
 	`)
-
+	
 	tokens := l.Lexical_analysis()
 	fmt.Println(tokens)
 
-	fmt.Scan()
+	
 }
 
 

@@ -1,7 +1,6 @@
 package lexer
 
 import (
-	"fmt"
 	tokens "mylang/tokens"
 	"regexp"
 )
@@ -21,6 +20,8 @@ func (l *Lexer) Lexical_analysis() []tokens.Token {
 	identifierRegex := regexp.MustCompile(`\w+`)
 	assignRegex := regexp.MustCompile(`^=$`)
 	functionRegex := regexp.MustCompile(`^def$`)
+	returnRegex := regexp.MustCompile(`^return$`)
+	endRegex := regexp.MustCompile(`^end$`)
 	lparenRegex := regexp.MustCompile(`^\($`)
 	rparenRegex := regexp.MustCompile(`^\)$`)
 	operatorRegex := regexp.MustCompile(`==|//|\+|\-|\*|/`)
@@ -31,13 +32,16 @@ func (l *Lexer) Lexical_analysis() []tokens.Token {
 	var result []tokens.Token
 
 	for _, v := range source {
-		fmt.Println(v)
 		if numberRegex.MatchString(v) {
 			result = append(result, tokens.Token{Type: tokens.TokenNumber, Value: v})
 		} else if keywordRegex.MatchString(v) {
 			result = append(result, tokens.Token{Type: tokens.TokenKeyword, Value: v})
 		} else if functionRegex.MatchString(v) {
 			result = append(result, tokens.Token{Type: tokens.TokenFunction, Value: v})
+		} else if returnRegex.MatchString(v) {
+			result = append(result, tokens.Token{Type: tokens.TokenReturn, Value: v})
+		} else if endRegex.MatchString(v) {
+			result = append(result, tokens.Token{Type: tokens.TokenKeyword, Value: v})
 		} else if lparenRegex.MatchString(v) {
 			result = append(result, tokens.Token{Type: tokens.TokenLParen, Value: v})
 		} else if rparenRegex.MatchString(v) {

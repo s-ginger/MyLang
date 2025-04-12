@@ -1,8 +1,6 @@
 package tokens
 
-import (
-	"fmt"
-)
+
 
 type TokenType string
 
@@ -25,12 +23,10 @@ const (
 
 type Token struct {
     Type    TokenType // Тип токена
-    Value   string    // Значение 
-    Line    int       
-    Column  int       
+    Value   string    // Значение     
 }
 
 func (t Token) String() string {
-    return "[" + string(t.Type) + "] " + t.Value + " (Line: " + fmt.Sprint(t.Line) + ", Column: " + fmt.Sprint(t.Column) + ")"
+    return "("  + string(t.Type) + ", " + t.Value + ") "
 }
 
