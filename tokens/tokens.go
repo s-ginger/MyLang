@@ -8,16 +8,21 @@ type TokenType string
 const (
     TokenIdentifier TokenType = "IDENTIFIER"
     TokenNumber     TokenType = "NUMBER"
-    TokenString     TokenType = "STRING"
-    TokenOperator   TokenType = "OPERATOR"
-	TokenAssign     TokenType = "ASSIGN"
-    TokenKeyword    TokenType = "KEYWORD"
-	TokenComment    TokenType = "COMMENT"
-	TokenFunction   TokenType = "FUNCTION"
-	TokenLParen     TokenType = "LPAREN"
-	TokenRParen     TokenType = "RPAREN"
-	TokenReturn     TokenType = "RETURN"
-    TokenEOF        TokenType = "EOF"
+    TokenString     TokenType = "STRING" 
+
+    TokenOperator   TokenType = "OPERATOR" // + - * /
+	TokenAssign     TokenType = "ASSIGN" // =
+	
+    TokenKeyword    TokenType = "KEYWORD" // var 
+
+	TokenLBrace     TokenType = "LBRACE"  // {
+	TokenRBrace     TokenType = "RBRACE"  // }
+
+	TokenLParen     TokenType = "LPAREN" // (
+	TokenRParen     TokenType = "RPAREN" // )
+
+	TokenReturn     TokenType = "RETURN" // return
+    TokenEOF        TokenType = "EOF" // end of file
 )
 
 

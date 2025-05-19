@@ -9,7 +9,10 @@ import (
 func main() {
 	
 	lex := lexer.NewLexer(`
-	(defn x 10)
+	def add(a, b) {
+    	return a + b
+	}
+	add(3, 2)
 	`)
 	
 	tokens := lex.Lexical_analysis()
